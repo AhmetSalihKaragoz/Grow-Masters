@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] Camera _camera;
-    [SerializeField] Transform cameraEndPosition;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private Transform cameraEndPosition;
 
 
-    private bool isLevelEnd = false;
+    private bool _isLevelEnd = false;
     private Vector3 _cameraOffset;
-    private float size_X;
+    private float _sizeX;
 
 
     private void Start()
@@ -28,10 +26,10 @@ public class CameraController : MonoBehaviour
     }
     private void CameraFollow()
     {
-        if (!isLevelEnd)
+        if (!_isLevelEnd)
         {
-            size_X = transform.localScale.x / 3;
-            var camOfSet = _cameraOffset * size_X;
+            _sizeX = transform.localScale.x / 3;
+            var camOfSet = _cameraOffset * _sizeX;
             camOfSet = new Vector3(0, Mathf.Clamp(camOfSet.y, 8, 16), Mathf.Clamp(camOfSet.z, -20, -5));
             Vector3 pos = new Vector3(0, camOfSet.y, (transform.position.z + camOfSet.z));
             _camera.transform.position = Vector3.Lerp(_camera.transform.position, pos, Time.deltaTime * 4);
@@ -43,7 +41,7 @@ public class CameraController : MonoBehaviour
     {
         if(other.CompareTag("FinishLine"))
         {
-            isLevelEnd = true;
+            _isLevelEnd = true;
             _camera.transform.DOMove(cameraEndPosition.transform.position, 2.5f);
             _camera.transform.DORotateQuaternion(cameraEndPosition.transform.rotation, 2.5f);
         }

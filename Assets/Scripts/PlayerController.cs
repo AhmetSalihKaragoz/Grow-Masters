@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
@@ -8,19 +7,13 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] public float moveSpeed;
     [SerializeField] float sideSpeed;
-
-
+    [Space]
     [SerializeField] Transform rewardPoint;
     [SerializeField] Animator _animator;
     
-
     private bool isFighting = false;
     private bool isDancing = false;
-
-    private void Start()
-    {
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
@@ -78,9 +71,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
-   
-
 
     private void Update()
     {

@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
-
 
 public class SizeController : MonoBehaviour
 {
     [Header("Size")]
     [SerializeField] Vector3 growSize;
     [HideInInspector] public Vector3 currentSize = new Vector3(1, 1, 1);
+    
     public Vector3 maxGrowSize = new Vector3(6, 6, 6);
     public Vector3 minGrowSize = new Vector3(0.5f, 0.5f, 05f);
 
@@ -31,9 +29,9 @@ public class SizeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Gate") 
+        if(other.CompareTag("Gate")) 
         { 
-            if (other.gameObject.GetComponent<GateController>().isGateActive == true)
+            if (other.gameObject.GetComponent<GateController>().isGateActive)
             {
                 
 
@@ -60,7 +58,7 @@ public class SizeController : MonoBehaviour
     private void AddSize(int operationValue)
     {
         var newSize = transform.localScale;
-        newSize = new Vector3(Mathf.Clamp(newSize.x, 0, maxGrowSize.x), Mathf.Clamp(newSize.y, 0 , maxGrowSize.y), Mathf.Clamp(newSize.z, 0, maxGrowSize.z));
+        transform.localScale = new Vector3(Mathf.Clamp(newSize.x, 0, maxGrowSize.x), Mathf.Clamp(newSize.y, 0 , maxGrowSize.y), Mathf.Clamp(newSize.z, 0, maxGrowSize.z));
         transform.DOScale(transform.localScale + (growSize * operationValue), 0.5f);
     }
 
@@ -91,18 +89,5 @@ public class SizeController : MonoBehaviour
         }
             
     }
-
-    public void Grow()
-    {
-
-    }
-
-    public void Shrink()
-    {
-
-    }
-
-
     
-
 }
