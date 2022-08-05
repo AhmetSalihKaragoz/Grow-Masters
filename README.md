@@ -1,2 +1,2 @@
 # GrowMasters
- It's a clone of "Count Masters" the difference is figure is getting bigger or smaller instead of multiplying.
+ It's a clone of "Count Masters" game the difference is the figure is getting bigger or smaller instead of multiplying.
