@@ -2589,6 +2589,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6052104651142039435, guid: f88fbe0b18c13104387d4b4bb3c0375d, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 6052104651142039435, guid: f88fbe0b18c13104387d4b4bb3c0375d, type: 3}
+      propertyPath: cameraEndPosition
+      value: 
+      objectReference: {fileID: 554395938}
     - target: {fileID: 7390486606689011226, guid: f88fbe0b18c13104387d4b4bb3c0375d, type: 3}
       propertyPath: rewardPoint
       value: 
